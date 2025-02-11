@@ -1,0 +1,525 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4AE7CCC6-28A2-4B34-B24C-DA3344177C61}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Database_project</RootNamespace>
+    <AssemblyName>Database_project</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.barcodes, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.8.0.4\lib\net461\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.bouncy-castle-connector, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.8.0.4\lib\net461\itext.bouncy-castle-connector.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.commons, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.commons.8.0.4\lib\net461\itext.commons.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.8.0.4\lib\net461\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.8.0.4\lib\net461\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.8.0.4\lib\net461\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.8.0.4\lib\net461\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.8.0.4\lib\net461\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfua, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.8.0.4\lib\net461\itext.pdfua.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.8.0.4\lib\net461\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.8.0.4\lib\net461\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.8.0.4\lib\net461\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.5.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Logging.5.0.0\lib\net461\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Logging.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Options.5.0.0\lib\net461\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Primitives.5.0.0\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Abstractions, Version=6.19.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Abstractions.6.19.0\lib\net472\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=6.15.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.JsonWebTokens.6.15.0\lib\net472\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.19.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Logging.6.19.0\lib\net472\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.19.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Tokens.6.19.0\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.21.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>packages\Oracle.ManagedDataAccess.21.14.0\lib\net462\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.122.21.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>packages\Oracle.ManagedDataAccess.EntityFramework.21.9.0\lib\net462\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Specialized, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Collections.Specialized.4.3.0\lib\net46\System.Collections.Specialized.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.5.0.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Formats.Asn1, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Formats.Asn1.8.0.0\lib\net462\System.Formats.Asn1.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=6.15.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\System.IdentityModel.Tokens.Jwt.6.15.0\lib\net472\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.6.0.1\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Twilio, Version=7.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Twilio.7.0.5\lib\net462\Twilio.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminHome.Designer.cs">
+      <DependentUpon>AdminHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adminlogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminlogin.Designer.cs">
+      <DependentUpon>adminlogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManageAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManageAppointment.Designer.cs">
+      <DependentUpon>AdminManageAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminViewFeedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminViewFeedback.Designer.cs">
+      <DependentUpon>AdminViewFeedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Chk_profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Chk_profile.Designer.cs">
+      <DependentUpon>Admin_Chk_profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerSuppHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerSuppHome.Designer.cs">
+      <DependentUpon>CustomerSuppHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerSuppLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerSuppLogin.Designer.cs">
+      <DependentUpon>CustomerSuppLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerSupportChkProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerSupportChkProfile.Designer.cs">
+      <DependentUpon>CustomerSupportChkProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CusViewFeedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CusViewFeedback.Designer.cs">
+      <DependentUpon>CusViewFeedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DashBoard.Designer.cs">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DocChkProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DocChkProfile.Designer.cs">
+      <DependentUpon>DocChkProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DocHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DocHome.Designer.cs">
+      <DependentUpon>DocHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doclogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doclogin.Designer.cs">
+      <DependentUpon>Doclogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DocmngAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DocmngAppointment.Designer.cs">
+      <DependentUpon>DocmngAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Docsignup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Docsignup.Designer.cs">
+      <DependentUpon>Docsignup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mainpage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mainpage.Designer.cs">
+      <DependentUpon>mainpage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageEmp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageEmp.Designer.cs">
+      <DependentUpon>ManageEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagePatients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagePatients.Designer.cs">
+      <DependentUpon>ManagePatients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientAppointment.Designer.cs">
+      <DependentUpon>PatientAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientChkProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientChkProfile.Designer.cs">
+      <DependentUpon>PatientChkProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientFeedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientFeedback.Designer.cs">
+      <DependentUpon>PatientFeedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="patientHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="patientHome.Designer.cs">
+      <DependentUpon>patientHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="patientlogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="patientlogin.Designer.cs">
+      <DependentUpon>patientlogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="patientsignup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="patientsignup.Designer.cs">
+      <DependentUpon>patientsignup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReceptionistChkProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReceptionistChkProfile.Designer.cs">
+      <DependentUpon>ReceptionistChkProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReceptionistHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReceptionistHome.Designer.cs">
+      <DependentUpon>ReceptionistHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReceptionistLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReceptionistLogin.Designer.cs">
+      <DependentUpon>ReceptionistLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RevenueReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RevenueReport.Designer.cs">
+      <DependentUpon>RevenueReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewRecord.Designer.cs">
+      <DependentUpon>ViewRecord.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AdminHome.resx">
+      <DependentUpon>AdminHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminlogin.resx">
+      <DependentUpon>adminlogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManageAppointment.resx">
+      <DependentUpon>AdminManageAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminViewFeedback.resx">
+      <DependentUpon>AdminViewFeedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_Chk_profile.resx">
+      <DependentUpon>Admin_Chk_profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerSuppHome.resx">
+      <DependentUpon>CustomerSuppHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerSuppLogin.resx">
+      <DependentUpon>CustomerSuppLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerSupportChkProfile.resx">
+      <DependentUpon>CustomerSupportChkProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CusViewFeedback.resx">
+      <DependentUpon>CusViewFeedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashBoard.resx">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DocChkProfile.resx">
+      <DependentUpon>DocChkProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DocHome.resx">
+      <DependentUpon>DocHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doclogin.resx">
+      <DependentUpon>Doclogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DocmngAppointment.resx">
+      <DependentUpon>DocmngAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Docsignup.resx">
+      <DependentUpon>Docsignup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainpage.resx">
+      <DependentUpon>mainpage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageEmp.resx">
+      <DependentUpon>ManageEmp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagePatients.resx">
+      <DependentUpon>ManagePatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientAppointment.resx">
+      <DependentUpon>PatientAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientChkProfile.resx">
+      <DependentUpon>PatientChkProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientFeedback.resx">
+      <DependentUpon>PatientFeedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="patientHome.resx">
+      <DependentUpon>patientHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="patientlogin.resx">
+      <DependentUpon>patientlogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="patientsignup.resx">
+      <DependentUpon>patientsignup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="ReceptionistChkProfile.resx">
+      <DependentUpon>ReceptionistChkProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReceptionistHome.resx">
+      <DependentUpon>ReceptionistHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReceptionistLogin.resx">
+      <DependentUpon>ReceptionistLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RevenueReport.resx">
+      <DependentUpon>RevenueReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewRecord.resx">
+      <DependentUpon>ViewRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Oracle.ManagedDataAccess.Client.Configuration.Section.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hospital.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patient-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doc-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\viewappot-removebg-preview1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patients.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patients-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doctors-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appointments-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer_support-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\receptionint-removebg-preview.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\System.Text.Json.6.0.1\build\System.Text.Json.targets" Condition="Exists('packages\System.Text.Json.6.0.1\build\System.Text.Json.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\System.Text.Json.6.0.1\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\System.Text.Json.6.0.1\build\System.Text.Json.targets'))" />
+  </Target>
+</Project>
